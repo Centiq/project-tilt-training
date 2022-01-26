@@ -38,4 +38,4 @@ Once this is done then reboot the machine and then if you check the command
 
 (again from an administrator command prompt) this should then report the correct MTU value.
 
-Credit: https://www.cbfive.com/how-to-find-a-network-adapter-in-the-registry/
+[Credit :link:](https://www.cbfive.com/how-to-find-a-network-adapter-in-the-registry/)
