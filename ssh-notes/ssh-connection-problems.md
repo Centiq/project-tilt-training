@@ -111,7 +111,8 @@ Where you replace
 - 'XXX' with index you noted down 'Preparation' section.
 - 'YYY' with the MTU value from the WSL machine
 
-#### In WSL
+### In WSL
+
 You need to start a WSL Shell and then run the following commands:
 
 ```text
