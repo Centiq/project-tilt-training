@@ -46,9 +46,9 @@ To check if you are having the specific connection problem this article attempts
 The problem is caused by a mismatch in the configuration of the network cards in Windows and the 'virtual' network card in the WSL machine.  As preparationto fix the problem you first need to do the following:
 
 1. Start a Windows command prompt, and run the following command.
+
    ```text
    netsh interface ipv4 show interfaces
-   ```
 2. This will produce a list such as this
 
   |Idx|   Met    |   MTU    |    State     |         Name                |
