@@ -132,7 +132,8 @@ This will fix the problem with SSH hanging.  You can test that the fix has worke
 ssh -T git@github.com
 ```
 
-# PLEASE NOTE
+:hand: PLEASE NOTE
+
 The two methods outlined above will **not** remember the MTU changes if you reboot the machine.
 
 In the WSL machine to persist these changes you can either add the ifconfig command to your bashrc file.
