@@ -12,7 +12,8 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
 
    ```text
       HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e965-e325-11ce-bfc1-08002be10318}
-   ```
+
+   ```text
    There will be several of them. Search through them until you locate the one with the value of 'Class' = 'Net' on the right hand pane.
 
 4. Now open it up.  In the subsequent list, there will be entries numbered 0000 - 9999,  On my machine there are ones from 0000 to 0017.  Look through them until you find one that has a value of 'DriverDesc' = 'My network card'.  When you locate it make a note of the GUID in the entry NetCfgInstanceId
