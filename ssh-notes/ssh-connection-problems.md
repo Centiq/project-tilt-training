@@ -63,9 +63,9 @@ The problem is caused by a mismatch in the configuration of the network cards in
 3. Locate your active network interface(s), this will probably be called either 'Ethernet' or 'WiFi'.  You need to make a note of the values from the IDX column and the MTU column.
 4. Now start a shell on the WSL machine.
 5. Run the following command:
-   ```bash
+
+   ```text
    ip link
-   ```
 6. This will list the interfaces on the WSL machine, and produce something like this
   ```
   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
