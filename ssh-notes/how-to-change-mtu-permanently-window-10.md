@@ -11,9 +11,9 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
 3. Locate this key
 
    ```text
-      HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e965-e325-11ce-bfc1-08002be10318}
+   HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e965-e325-11ce-bfc1-08002be10318}
+   ```
 
-   ```text
    There will be several of them. Search through them until you locate the one with the value of 'Class' = 'Net' on the right hand pane.
 
 4. Now open it up.  In the subsequent list, there will be entries numbered 0000 - 9999,  On my machine there are ones from 0000 to 0017.  Look through them until you find one that has a value of 'DriverDesc' = 'My network card'.  When you locate it make a note of the GUID in the entry NetCfgInstanceId
@@ -23,7 +23,9 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
 5. Now locate this key
 
    ```text
-      HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces
+   HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces
+   ```
+
    Below this there are a number of sub-keys with GUID names.  Find the one(s) with the value matching the GUID you noted in step (4).
 
    In the values for the Key you have located will be an MTU entry.  Amend this as needed.
@@ -32,8 +34,8 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
 
 Once this is done then reboot the machine and then if you check the command
 
-   ```text
-   netsh interface ipv4 show interfaces
+```text
+netsh interface ipv4 show interfaces
 ```
 
 (again from an administrator command prompt) this should then report the correct MTU value.

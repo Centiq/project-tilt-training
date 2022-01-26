@@ -19,27 +19,28 @@ To check if you are having the specific connection problem this article attempts
 
    ```text
    ssh -T -vv git@github.com
+
 3. If you are suffering from the connection issue you will see the following output:
 
-  ```text
-  openssH 8.2p1 Ubuntu-4, openssL 1.1.1f 31 mar 2828
-  debug1: Reading configuration data /etc/ssh/ssh_config
-  debug2: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
-  debug1: /etc/ssh/ssh_config line 21: Applying options for *
-  debugl: Connecting to github.ccm [148.82.121.3] port 22.
-  debugl: Connection established.
-  ...
-  ... Lots of messages here ...
-  ...
-  debugl: Authenticating to github.ccn:22 as 'git'
-  debugl: . KEXINIT sent
-  debugl: . SSH2 KEXINIT received
-  debugl: kex: algoritfun: curve25519-sha256
-  debugl: kex: host key algoritfun: ecdsa-sha2-nistp256
-  debugl: kex: server->client cipher: chacha2ø-p01y13øS@penssh.ccm (implicit> compression:
-  debugl: kex: client->server cipher: chacha2ø-p01y13øS@penssh.ccm 'u: (implicit> compression:
-  debugl: expecting SSH2_KEX_ECDH_REPLY
-  ```
+   ```text
+   openssH 8.2p1 Ubuntu-4, openssL 1.1.1f 31 mar 2828
+   debug1: Reading configuration data /etc/ssh/ssh_config
+   debug2: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+   debug1: /etc/ssh/ssh_config line 21: Applying options for *
+   debugl: Connecting to github.ccm [148.82.121.3] port 22.
+   debugl: Connection established.
+   ...
+   ... Lots of messages here ...
+   ...
+   debugl: Authenticating to github.ccn:22 as 'git'
+   debugl: . KEXINIT sent
+   debugl: . SSH2 KEXINIT received
+   debugl: kex: algoritfun: curve25519-sha256
+   debugl: kex: host key algoritfun: ecdsa-sha2-nistp256
+   debugl: kex: server->client cipher: chacha2ø-p01y13øS@penssh.ccm (implicit> compression:
+   debugl: kex: client->server cipher: chacha2ø-p01y13øS@penssh.ccm 'u: (implicit> compression:
+   debugl: expecting SSH2_KEX_ECDH_REPLY
+   ```
 
 ## How to Fix the Problem - Preparation
 
@@ -49,16 +50,18 @@ The problem is caused by a mismatch in the configuration of the network cards in
 
    ```text
    netsh interface ipv4 show interfaces
+   ```
+
 2. This will produce a list such as this
 
-  |Idx|   Met    |   MTU    |    State     |         Name                |
-  |---|----------|----------|--------------|-----------------------------|
-  |  1|        75|4294967295|     connected| Loopback Pseudo-Interface 1 |
-  | 17|        50|      1300|  disconnected| WiFi                        |
-  | 20|        25|      1300|     connected| Ethernet                    |
-  | 13|        25|      1500|  disconnected| Local Area Connection* 3    |
-  | 15|        25|      1500|  disconnected| Local Area Connection* 12   |
-  | 54|        15|      1500|     connected| vEthernet (WSL)             |
+   |Idx|   Met    |   MTU    |    State     |         Name                |
+   |---|----------|----------|--------------|-----------------------------|
+   |  1|        75|4294967295|     connected| Loopback Pseudo-Interface 1 |
+   | 17|        50|      1300|  disconnected| WiFi                        |
+   | 20|        25|      1300|     connected| Ethernet                    |
+   | 13|        25|      1500|  disconnected| Local Area Connection* 3    |
+   | 15|        25|      1500|  disconnected| Local Area Connection* 12   |
+   | 54|        15|      1500|     connected| vEthernet (WSL)             |
 
 3. Locate your active network interface(s), this will probably be called either 'Ethernet' or 'WiFi'.  You need to make a note of the values from the IDX column and the MTU column.
 4. Now start a shell on the WSL machine.
@@ -66,21 +69,25 @@ The problem is caused by a mismatch in the configuration of the network cards in
 
    ```text
    ip link
+   ```
+
 6. This will list the interfaces on the WSL machine, and produce something like this
-  ```
-  1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+
+   ```text
+   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
       link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-  2: bond0: <BROADCAST,MULTICAST,MASTER> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+   2: bond0: <BROADCAST,MULTICAST,MASTER> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
       link/ether 8e:d4:8b:55:37:c8 brd ff:ff:ff:ff:ff:ff
-  3: dummy0: <BROADCAST,NOARP> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+   3: dummy0: <BROADCAST,NOARP> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
       link/ether 06:63:1c:4d:3b:48 brd ff:ff:ff:ff:ff:ff
-  4: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+   4: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
       link/ether 00:15:5d:2e:42:5f brd ff:ff:ff:ff:ff:ff
-  5: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+   5: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
       link/ipip 0.0.0.0 brd 0.0.0.0
-  6: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+   6: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN mode DEFAULT group default qlen 1000
       link/sit 0.0.0.0 brd 0.0.0.0
-  ```
+   ```
+
 7. Locate the 'eth0' entry and note the MTU value.
 
 So once, you have done all this you should have the following information
@@ -138,4 +145,4 @@ The two methods outlined above will **not** remember the MTU changes if you rebo
 
 In the WSL machine to persist these changes you can either add the ifconfig command to your bashrc file.
 
-Under Windows you may need to set up a command file that you run after you reboot the machine.  There is an alternative, but this requires editing the registry and is quite complicated.  See the file
+Under Windows you may need to set up a command file that you run after you reboot the machine.  There is an alternative, but this requires editing the registry and is quite complicated.  See the file [how-to-change-mtu-permanently-window-10](how-to-change-mtu-permanently-window-10.md) for more details.
