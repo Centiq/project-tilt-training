@@ -78,4 +78,4 @@ Hi EXAMPLEUSER! You've successfully authenticated, but GitHub does not provide s
 
 ```
 
-If you have problems with the connection test then, appearing to Hang when it is performed see the file [ssh-connection-problems.md](ssh-connection-problems.md).
+If you have problems with the connection test appearing to hang when it is performed see [ssh-connection-problems](ssh-connection-problems.md) for remediation.
