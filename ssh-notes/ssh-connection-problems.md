@@ -98,7 +98,8 @@ If the MTU values for the Windows environment does NOT match the one that the WS
 
 We need to make the MTU in Windows match the MTU in the WSL machine (or vice versa).  So to correct the situation you must do one of two things - either modify the MTU value in Windows, or modify the MTU value in the WSL environment.
 
-#### In Windows
+### In Windows
+
 You need to start a Windows command prompt (or Powershell).  The command prompt/power shell needs to be running as the Administrator.  Then you must run the following command:
 
 ```text
