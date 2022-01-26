@@ -1,6 +1,6 @@
 # Using SSH Keys with Passwords
 
-When you create an SSH key, you are allowed to assign a password to it.  This means whenever you attempt to use the key it will prompt you with a password.  Some software, such as VS Code, canwill deal with this for you and cache the appropriate permissions it needs.
+When you create an SSH key, you are allowed to assign a password to it.  This means whenever you attempt to use the key it will prompt you with a password.  Some software, such as VS Code, can deal with this for you and cache the appropriate permissions it needs.
 
 Other software (for example the command line version of git) will always prompt for the password associated with the SSH key being used.  This can be rather annoying.  It is possible to cache the permissions such that you only need to enter the password at the start of a session.
 
