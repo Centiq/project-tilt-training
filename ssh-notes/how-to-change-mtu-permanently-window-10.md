@@ -32,7 +32,7 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
 
 Once this is done then reboot the machine and then if you check the command
 
-```
+   ```text
    netsh interface ipv4 show interfaces
 ```
 
