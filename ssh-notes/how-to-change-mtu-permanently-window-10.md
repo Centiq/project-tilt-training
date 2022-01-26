@@ -23,7 +23,6 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
 
    ```text
       HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces
-   ```
    Below this there are a number of sub-keys with GUID names.  Find the one(s) with the value matching the GUID you noted in step (4).
 
    In the values for the Key you have located will be an MTU entry.  Amend this as needed.
