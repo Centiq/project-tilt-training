@@ -44,7 +44,7 @@ Follow the prompts and once it has finisheed then it will produce the two is_rsa
 
 Once you have located the SSH key files, then you need to associate them with your Git Hub account.  You can do this as follows-
 
-1. Log into Github (http://github.com) in a browser.
+1. Log into [Github](http://github.com) in a browser.
 2. Click on your profile picture (top right hand corner), and choose 'Settings'.
 3. In the left hand menu select 'SSH and GPG Keys'.
 4. On the page that is shown, press the button 'New SSH Key'.
