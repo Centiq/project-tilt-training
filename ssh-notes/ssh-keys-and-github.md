@@ -38,7 +38,7 @@ Use this command from the WSL shell:
 ssh-keygen -t rsa -b 4096
 ```
 
-Follow the prompts and once it has finisheed then it will produce the two is_rsa files we were looking for previously.
+Follow the prompts and once it has finished then it will produce the two id_rsa files we were looking for previously.
 
 ## To Upload the SSH Key to Git Hub
 
