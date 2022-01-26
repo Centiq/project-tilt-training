@@ -43,7 +43,7 @@ To check if you are having the specific connection problem this article attempts
 
 ## How to Fix the Problem - Preparation
 
-The problem is caused by a mismatch in the configuration of the network cards in Windows and the 'virtual' network card in the WSL machine.  As preparationto fix the problem you first need to do the following:
+The problem is caused by a mismatch in the configuration of the network cards in Windows and the 'virtual' network card in the WSL machine.  As preparation to fix the problem you first need to do the following:
 
 1. Start a Windows command prompt, and run the following command.
 
