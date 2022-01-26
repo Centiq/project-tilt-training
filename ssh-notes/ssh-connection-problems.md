@@ -16,9 +16,9 @@ To check if you are having the specific connection problem this article attempts
 
 1. Start a WSL shell
 2. Run the following command
-  ```bash
-  ssh -T -vv git@github.com
-  ```
+
+   ```text
+   ssh -T -vv git@github.com
 3. If you are suffering from the connection issue you will see the following output:
 
   ```text
