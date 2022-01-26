@@ -20,7 +20,8 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
    You will need to repeat this for any other network cards/WiFi that you want to affect.
 
 5. Now locate this key
-   ```
+
+   ```text
       HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces
    ```
    Below this there are a number of sub-keys with GUID names.  Find the one(s) with the value matching the GUID you noted in step (4).
