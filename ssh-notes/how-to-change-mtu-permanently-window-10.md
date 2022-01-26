@@ -9,7 +9,8 @@ The problem is that the NETSH command does not store a changed MTU value.  the v
 2. From within that run the command REGEDIT
 
 3. Locate this key
-   ```
+
+   ```text
       HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e965-e325-11ce-bfc1-08002be10318}
    ```
    There will be several of them. Search through them until you locate the one with the value of 'Class' = 'Net' on the right hand pane.
