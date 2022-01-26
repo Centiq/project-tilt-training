@@ -19,6 +19,7 @@ To check if you are having the specific connection problem this article attempts
 
    ```text
    ssh -T -vv git@github.com
+   ```
 
 3. If you are suffering from the connection issue you will see the following output:
 
