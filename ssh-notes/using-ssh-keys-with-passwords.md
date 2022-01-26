@@ -25,20 +25,24 @@ To use ssh-agent to cache your key password, do the following
    cd ~
    ```
 
-2. Amend your .bashrc script to load the ssh-agent program when you login to a WSL shell.  This can be accomplished by using a text editor.  A simple text editor to use is called 'nano'.  Once you are editing the .bashrc script, then add the following to the end of the script.
+2. Amend your .bashrc script to load the ssh-agent program when you login to a WSL shell.  This can be accomplished by using a text editor.  There are several text editors you could use - vi, nano or VS Code.  Once you are editing the .bashrc script, then add the following to the end of the script:
 
    ```text
-   eval "$(ssh-agent -s)"
+   if ! [ -d $HOME/.ssh/ ]; then
+     mkdir $HOME/.ssh/
+   fi
 
+   # Is there an instance running already in the shell
    if [ -z "$SSH_AUTH_SOCK" ]; then
-     # Check for a currently running instance of the agent
+     # There is not so, check for a currently running instance of the agent from a different session
      RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
 
      if [ "$RUNNING_AGENT" = "0" ]; then
-           # Launch a new instance of the agent
-           ssh-agent -s &> $HOME/.ssh/ssh-agent
+       # Launch a new instance of the agent
+       ssh-agent -s > $HOME/.ssh/ssh-agent
      fi
 
+     # Make sure the ssh-agent environment variables are set
      eval `cat $HOME/.ssh/ssh-agent`
    fi
    ```

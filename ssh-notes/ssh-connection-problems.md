@@ -144,6 +144,6 @@ ssh -T git@github.com
 
 The two methods outlined above will **not** remember the MTU changes if you reboot the machine.
 
-In the WSL machine to persist these changes you can either add the ifconfig command to your bashrc file.
+In the WSL machine to persist these changes you can add the ifconfig command.
 
 Under Windows you may need to set up a command file that you run after you reboot the machine.  There is an alternative, but this requires editing the registry and is quite complicated.  See [how-to-change-mtu-permanently-window-10](how-to-change-mtu-permanently-window-10.md) for more details.

@@ -18,11 +18,11 @@ These are the elements outlined in John Gruber’s original design document. All
 
 ### Bold
 
-**bold text**
+Here is some **bold text**
 
 ### Italic
 
-*italicized text*
+Here is some *italicized text*
 
 ### Blockquote
 
