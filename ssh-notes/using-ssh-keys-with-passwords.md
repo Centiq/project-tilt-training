@@ -34,7 +34,7 @@ To use ssh-agent to cache your key password, do the following
 
    # Is there an instance running already in the shell
    if [ -z "$SSH_AUTH_SOCK" ]; then
-     # There is not so, check for a currently running instance of the agent from a different session
+     # There is not, so check for a currently running instance of the agent from a different session
      RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
 
      if [ "$RUNNING_AGENT" = "0" ]; then
