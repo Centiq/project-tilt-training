@@ -32,19 +32,25 @@ To use ssh-agent to cache your key password, do the following
      mkdir $HOME/.ssh/
    fi
 
-   # Is there an instance running already in the shell
-   if [ -z "$SSH_AUTH_SOCK" ]; then
-     # There is not, so check for a currently running instance of the agent from a different session
-     RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-
-     if [ "$RUNNING_AGENT" = "0" ]; then
-       # Launch a new instance of the agent
-       ssh-agent -s > $HOME/.ssh/ssh-agent
+   REGENERATE=no
+   if [[ -f $HOME/.ssh/ssh-agent ]]; then
+     typeset -i PID=$(grep 'SSH_AGENT_PID=' $HOME/.ssh/ssh-agent | cut -f2 -d= | cut -f1 -d\;)
+     if [[ ${PID} -eq 0 ]]; then
+        REGENERATE=yes
+     else
+        if ps -f --pid ${PID} | grep -q 'ssh-agent -s'; then
+           SOCK="$(grep 'SSH_AUTH_SOCK=' $HOME/.ssh/ssh-agent | cut -f2 -d= | cut -f1 -d\;)"
+           if ! file ${SOCK} | grep -q 'socket$'; then
+           REGENERATE=yes
+           fi
+        else
+           REGENERATE=yes
+        fi
      fi
-
-     # Make sure the ssh-agent environment variables are set
-     eval `cat $HOME/.ssh/ssh-agent`
    fi
+   [[ ${REGENERATE} == yes ]] && ssh-agent -s >$HOME/.ssh/ssh-agent
+   eval $(<$HOME/.ssh/ssh-agent)
+   ssh-add ~/.ssh/id_rsa
    ```
 
    The purpose of these changes is to ensure that the ssh-agent is running, and is only started once.  Any subsequent logins will use the same instance of the ssh-agent program.
