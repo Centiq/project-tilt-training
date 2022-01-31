@@ -211,6 +211,8 @@ Columns may be aligned left (default), centre or right using `:` markers in the 
 |             3 | Lithium   |   Li   |
 |             4 | Beryllium |   Be   |
 
+When using VS Code, intalling [Markdown Table Prettifier](https://marketplace.visualstudio.com/items?itemName=darkriszty.markdown-table-prettify) makes it easy to automatically unify the appearance by highlighting and reformatting.
+
 ## Adding Images
 
 Images may be added using either URLs to a web-hosted image, or via linking to image files included in the repo.
