@@ -93,9 +93,9 @@ This is some code: `echo something`
 
 *Italic Text* is produced using `*Italic Text*`
 
-You may of course have ***bold and italic*** text.
+***Bold and Italic text*** is produced using `***Bold and Italic text***`.
 
-Text may be ~~struck through~~ using `~~this will be struck through~~`.
+~~Struck through text~~ is produced using `~~Struck through text~~`.
 
 ---
 
@@ -113,7 +113,7 @@ This form is preferred: [Corporate Website](https://www.softwareone.com/)
 
 ## Escape Sequence
 
-You can escape characters which would otherwise be actioned using \\ eg. \\\`
+You can escape characters which would otherwise be actioned by preceding each actionable character with a backslash (`\`). For example \\\`
 
 ---
 
@@ -157,7 +157,25 @@ will produce
 
 Note that indented bullets/numbers must be aligned with the preceding line's start of text. Numbers are permitted to run consecutively if you wish, but reordering a list is easier if all numbers are set to `1.`
 
-Blank lines between list items are not required. If used they will be ignored.
+Blank lines between list items are not required. If used they will be ignored. However, you may want to include "hanging paragraphs", i.e. which follow on from the bulleted/numbered paragraph, are indented nt the same amount and do not disturb the number sequencing (if always using `1.`).
+
+```text
+1. Item 1
+1. Item 2
+
+   This is a hanging paragraph. It begins at the same position as the start of text in the preceding (numbered) item. It should be wrapped in blank lines.
+
+1. Item 3
+```
+
+will produce
+
+1. Item 1
+1. Item 2
+
+   This is a hanging paragraph. It begins at the same position as the start of text in the preceding (numbered) item. It should be wrapped in blank lines.
+
+1. Item 3
 
 ---
 
