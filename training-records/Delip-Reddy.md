@@ -46,3 +46,4 @@
 - [x] Created new branch of the form `<firstname>-<lastname>-training-record`, e.g. `bob-bobson-training-record`
 - [x] Updated personal training record in `training-records/<firstname>-<lastname>.md`
 - [x] Saved, staged, committed and pushed changes to GitHub.
+  
